@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Kreatif - Imelia Febriyanti</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@400;600;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* --- SECTION 1: BANNER UTAMA (TEMA MATCHA DENGAN POLA & ANIMASI) --- */
+        .section-hero {
+            /* Background gradasi hijau matcha ditambah pola titik estetik */
+            background-color: #b8d8be;
+            background-image: radial-gradient(rgba(255,255,255,0.4) 2px, transparent 2px), 
+                              radial-gradient(rgba(255,255,255,0.4) 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            height: 450px;
+            position: relative; /* Penting untuk elemen mengambang */
+            overflow: hidden; /* Biar elemen nggak keluar batas layar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border-bottom: 8px solid #f9cbd3;
+        }
+
+        /* Animasi mengambang (floating) untuk elemen dekorasi */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .floating-el {
+            position: absolute;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.85;
+            user-select: none;
+        }
+
+        /* Posisi elemen-elemen dekorasi */
+        .el-1 { top: 15%; left: 15%; animation-delay: 0s; font-size: 4rem; }
+        .el-2 { top: 25%; right: 20%; animation-delay: 1.5s; font-size: 3rem; }
+        .el-3 { bottom: 15%; left: 25%; animation-delay: 2s; font-size: 3.5rem; }
+        .el-4 { bottom: 20%; right: 15%; animation-delay: 0.5s; font-size: 4.5rem; }
+
+        .hero-title-box {
+            background-color: #d45d79;
+            padding: 10px 40px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            transform: rotate(-2deg);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 5px 20px;
+            border-radius: 20px;
+            color: #310c14;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- SECTION 2: ABOUT & KONTAK --- */
+        .section-about {
+            background: url('https://www.transparenttextures.com/patterns/lined-paper.png'), #f4ebd9;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* BINGKAI FOTO GAYA POLAROID VINTAGE */
+        .polaroid-frame {
+            background: white;
+            padding: 15px 15px 55px 15px; /* Ruang bawah lebih luas khas polaroid */
+            width: 250px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            transform: rotate(-3deg); /* Dimiringkan sedikit biar artsy */
+            transition: 0.3s ease;
+        }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.05); /* Interaktif saat disentuh mouse */
+        }
+
+        .polaroid-frame img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 3px;
+            filter: contrast(1.1) sepia(0.15); /* Efek pencahayaan kamera jadul */
+        }
+
+        .phone-tag {
+            background-color: #d45d79;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: -30px;
+            position: relative;
+            z-index: 5;
+            transform: rotate(3deg);
+        }
+
+        .about-text-box {
+            max-width: 550px;
+        }
+
+        .highlight-pink {
+            background-color: #fca3cc;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .highlight-green {
+            background-color: #b8d8be;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+            border-top: 2px dashed #999;
+            padding-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* --- SECTION 3: EXPERIENCES --- */
+        .section-experience {
+            background: linear-gradient(rgba(244, 235, 217, 0.9), rgba(244, 235, 217, 0.9)),
+                        url('https://www.transparenttextures.com/patterns/stardust.png');
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .clipboard-box {
+            background-color: #f9cbd3;
+            border: 4px solid #4a1521;
+            border-radius: 20px;
+            max-width: 850px;
+            width: 100%;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .clipboard-box::before {
+            content: "📋";
+            font-size: 3rem;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-tag {
+            background-color: white;
+            border: 2px solid #4a1521;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            color: #4a1521;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .exp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exp-item {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 5px solid #7fa987;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: white;
+            background-color: #d45d79;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .custom-list {
+            padding-left: 18px;
+            margin: 8px 0 0 0;
+        }
+
+        .custom-list li {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            color: #444;
+        }
+
+        /* --- SECTION 4: SKILL, ORGANISASI & SERTIFIKASI --- */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 750px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .inner-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #4a1521;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        .inner-card h4 {
+            margin-top: 0;
+            color: #4a1521;
+            border-bottom: 2px dashed #7fa987;
+            padding-bottom: 5px;
+        }
+
+        /* --- SECTION 5: PROJEK & DOWNLOAD --- */
+        .section-project {
+            background: linear-gradient(#f4ebd9, #b8d8be);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .download-box {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .download-header {
+            background-color: #d45d79;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            border-radius: 12px 12px 0 0;
+            font-size: 1.1rem;
+        }
+
+        .download-body {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: #7fa987;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+            transition: 0.2s;
+            margin: 15px 0;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            background-color: #658a6c;
+        }
+
+        footer {
+            background-color: #4a1521;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= SECTION 1: HERO UTAMA ================= -->
+    <div class="section-hero">
+        
+        <!-- Elemen Dekorasi Melayang -->
+        <div class="floating-el el-1">🍃</div>
+        <div class="floating-el el-2">✨</div>
+        <div class="floating-el el-3">🌸</div>
+        <div class="floating-el el-4">🍵</div>
+
+        <div class="hero-title-box">PortoFolio</div>
+        <div class="hero-subtitle">Imelia Febriyanti</div>
+    </div>
+
+    <!-- ================= SECTION 2: ABOUT & KONTAK ================= -->
+    <div class="section-about">
+        <!-- Bingkai Foto diganti gaya Polaroid Klasik -->
+        <div class="polaroid-frame">
+            <img src="imelia.jpeg" alt="Foto Imelia Febriyanti">
+            <span class="phone-tag">Hai,aku Imelia! ✨</span>
+        </div>
+
+        <div class="about-text-box">
+            <h2><span class="highlight-pink">Profil</span></h2>
+            <p style="line-height: 1.8; color: #333; text-align: justify; font-size: 0.95rem;">
+                Saya adalah lulusan dari <strong class="highlight-green">SMK Negeri 47 Jakarta</strong> dengan spesialisasi di bidang <span class="highlight-pink">Akuntansi dan Keuangan Lembaga</span>. Memiliki latar belakang pendidikan yang kuat dalam pengelolaan Keuangan, saya juga dibekali dengan pengalaman praktis yang mengasah keterampilan komunikasi interpersonal, orientasi pada pelayanan prima,serta kemampuan adaptasi yang tinggi. Saya adalah seorang individu yang dinamis, senang berinteraksi dengan berbagai macam karakter orang, dan siap memberikan kontribusi terbaik baik secara mandiri maupun berkolaborasi dalam tim untuk mencapai target yang maksimal.
+            </p>
+
+            <h3>Pendidikan Terakhir</h3>
+            <p style="margin: 5px 0; font-weight: 600; color: #4a1521;">
+                SMK Negeri 47 Jakarta | 2025 <br>
+                <span style="font-weight: normal; color: #555; font-size: 0.95rem;">Akuntansi Keuangan dan Lembaga</span>
+            </p>
+
+            <h3>Kontak Lengkap</h3>
+            <div class="contact-grid">
+                <div><strong>📞 Telepon:</strong><br>+62-8967-5945-064</div>
+                <div><strong>✉️ Email:</strong><br>febriyantiimel893@gmail.com</div>
+                <div><strong>📍 Alamat:</strong><br>Jl.Kemang Utara VII C,No 21</div>
+                <div><strong>🔗 LinkedIn:</strong><br><a href="https://www.linkedin.com/in/imelia-febriyanti-6b629736a" target="_blank" style="color:#d45d79; font-weight: bold;">imelia-febriyanti-6b629736a</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SECTION 3: EXPERIENCES ================= -->
+    <div class="section-experience">
+        <div class="clipboard-box">
+            
+            <div class="header-tag">Pengalaman Kerja & Prakerin</div>
+            <div class="exp-grid">
+                
+                <div class="exp-item">
+                    <span class="exp-date">2021-2024</span>
+                    <p style="margin: 5px 0 0 0;"><strong>Florist (Part Time)</strong></p>
+                    <ul class="custom-list">
+                        <li>Mengkombinasikan berbagai jenis bunga, daun, maupun tanaman pot menjadi sebuah rangkaian.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <span class="exp-date">2022</span>
+                    <p style="margin: 5px 0 0 0;"><strong>Teller & Customer Service</strong> (Bank Mini BNI SMKN 47 Jakarta)</p>
+                    <ul class="custom-list">
+                        <li>Melayani nasabah, melakukan transaksi keuangan melalui web Bank BNI.</li>
+                        <li>Melayani nasabah dalam mengimput transaksi melalui Microsoft Excel.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Juni 2025</span>
+                    <p style="margin: 5px 0 0 0;"><strong>Badan Pendidikan & Pelatihan Keuangan (Prakerin)</strong></p>
+                    <ul class="custom-list">
+                        <li>Mengelola kearsipan melalui aplikasi Kemenkeu.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Juni 2025</span>
+                    <p style="margin: 5px 0 0 0;"><strong>Happy Fresh (Prakerin)</strong></p>
+                    <ul class="custom-list">
+                        <li>Bertugas penuh sebagai Shopper ahli lapangan.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="header-tag" style="margin-top: 35px;">Kemampuan, Organisasi & Sertifikasi</div>
+            <div class="two-col">
+                
+                <div class="inner-card">
+                    <h4>Kemampuan (Skills)</h4>
+                    <p style="margin: 5px 0; font-weight: bold; color: #4a1521; font-size: 0.9rem;">Soft Skill:</p>
+                    <ul class="custom-list" style="margin-bottom: 10px;">
+                        <li>Komunikasi</li>
+                        <li>Teamwork</li>
+                        <li>Bertanggung jawab</li>
+                        <li>Melayani Pelanggan</li>
+                    </ul>
+                    <p style="margin: 5px 0; font-weight: bold; color: #4a1521; font-size: 0.9rem;">Hard Skill:</p>
+                    <ul class="custom-list">
+                        <li>Microsoft Word</li>
+                        <li>Microsoft Excel</li>
+                    </ul>
+                </div>
+
+                <div class="inner-card">
+                    <h4>Pengalaman Organisasi</h4>
+                    <ul class="custom-list" style="margin-bottom: 15px;">
+                        <li>Wakil Ketua Seksi Bidang (Berbudi Pekerti luhur & Akhlak mulia)</li>
+                        <li>Ketua Seksi Bidang (Keterampilan, Kreativitas dan Kewirausahaan)</li>
+                        <li>Sekretaris</li>
+                        <li>Bendahara</li>
+                        <li>Humas</li>
+                    </ul>
+
+                    <h4>Sertifikasi & Kualifikasi</h4>
+                    <ul class="custom-list">
+                        <li>Cade Organisasi</li>
+                        <li>Accurate Software & Online</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= SECTION 4: DOWNLOAD DOKUMEN ================= -->
+    <div class="section-project">
+        <div class="download-box">
+            <div class="download-header">
+                📄 Dokumen Pendukung
+            </div>
+            <div class="download-body">
+                <h3>Curriculum Vitae (CV) Lengkap</h3>
+                <p>Silakan unduh dokumen CV untuk melihat detail profil dan riwayat pengalaman saya secara lebih lengkap.</p>
+                <a href="cv imelia.pdf" download class="btn-download">📥 Unduh CV Imelia (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 Imelia Febriyanti | Portofolio Web</p>
+    </footer>
+
+</body>
+</html>
